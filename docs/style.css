@@ -57,10 +57,10 @@ option{
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 5%;
-	margin-bottom: 10%;
+	margin-bottom: 10%;/*
 	border-style: outset;
 	border-color: orange;
-	border-width: 10px;
+	border-width: 10px;*/
 	height: 1000px;
 }
 .picb{
@@ -115,15 +115,14 @@ span{
 }
 #mapleft{
 	width:30%;
-	height:800px;
+	height: 1000px;
 	float:left;
 }
 #mapleft .text{
-	padding-top: 40%;
 	padding-bottom: 20%;
 }
 #mapright{
-	height: 800px;
+	height: 1000px;
 	width: 70%;/*
 	padding-top: 10%;
 	padding-bottom: 10%;
@@ -220,21 +219,17 @@ ul{
 	max-width: 50%;
 }
 #ldtext{
-	padding-top: 20%;
-	height: 40%;
-	font-size: 20px;
+	padding-left: 20%;
+	padding-top: 10%;
+	width: 60%;
+	font-size: 35px;
     font-family: "Comic Sans MS";
-	
 }
-#box{/*
-	padding-top: 20%;
-	padding-bottom: 20%;
-	padding-left: 10%;
-	padding-right: 10%;
-	height: 50%;*/
+#box{
+	padding-top: 60%;
+	height: 50%;
 	padding-left: 10%;
 	padding-right: 5%;
-
 	height: 50%;
 }
 #box div{
@@ -260,13 +255,13 @@ ul{
 }
 .full #corrleft{
 	height:100%;
-	width: 32%;
+	width: 30%;
 	float:left;
 }
 .full #corrright{
 	height: 100%;
 	float:left;
-	width: 68%;
+	width: 70%;
 	float:right;
 }
 #corrright .text_bar{
@@ -282,4 +277,93 @@ ul{
 }
 #box .bt{
 	padding-top: 10%;
+}
+
+#submit-logged-out {<!--from www.java2s.com-->
+   background: #000;
+   color: #fff;
+   font-size: 5em;
+   left: 50px;
+   padding: 40px;
+   position: relative;
+   top: 20px;
+   font-family: "Comic Sans MS";
+}
+.popout {
+   animation: popout 1s ease;
+   -webkit-animation: popout 1s ease;
+}
+@keyframes popout {
+   from{transform:scale(0)}
+   80%{transform:scale(1.2)}
+   to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+   from{-webkit-transform:scale(0)}
+   80%{-webkit-transform:scale(1.2)}
+   to{-webkit-transform:scale(1)}
+}
+iframe{
+	border: 0;
+	width: 800px;
+	height: 400px;
+	padding-top: 5%;/*
+	max-width:100%;
+	max-height:100%;*/
+}
+a {
+    font-family: "Comic Sans MS";
+    color: gray; 
+  
+}
+#cat .text_bar{
+	padding-top: 5%;
+   	font-size: 35px;
+
+}
+
+#intro{
+	padding-left: 20%;
+   	font-family: "Comic Sans MS";
+   	font-size: 35px;
+	padding-top: 10%;
+	width:60%;
+}
+
+.ques{
+	padding-top: 25%;
+	width: 100%;
+	font-size: 40px;
+    font-family: "Comic Sans MS";
+}
+
+.ques b{
+	width:60%;
+}
+
+#small{
+	padding-top:15%;
+	width:60%;
+}
+#end div{
+	padding-top: 15%;
+	font-size: 35px;
+    font-family: "Comic Sans MS";
+}
+/*.gifb{
+	width: 400px;
+
+	max-width:100%;
+	max-height:100%;
+}*/
+.gifs{
+	width: 300px;
+	height: 200px;
+	max-width:none;
+	max-height:none;
+}
+#RGB{
+	padding-left: 10%;
+	padding-right: 5%;
+	padding-bottom: 5%;
 }

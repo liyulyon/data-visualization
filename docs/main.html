@@ -36,47 +36,38 @@
 				obj.src="picplots/"+selections[0]+"_"+selections[1]+"_"+selections[3]+".jpeg";
 			}
 			obj.title="Prediction for "+selections[0]+" "+selections[1]+" "+selections[3];
-			// const fs = require("fs"); // Or `import fs from "fs";` with ESM
-			// if (fs.existsSync(path)) {
-    
-			// 	obj.src="picplots/"+selections[0]+"_"+selections[1]+"_"+selections[2]+"_"+country+".jpeg";
-			// 	obj.title="Prediction for "+selections[0]+" "+selections[1]+" "+selections[2]+" "+selections[3];
-		
-			// } else {
-
-			// }
 
 		}
-		function corrcreate(){
-			obj_l = document.getElementsByName('category');
-			obj_l1 = document.getElementsByName('category2');
-			obj2 = document.getElementById('corrimg');
-			src = "corrplots/";
-			for(var i = 0; i < obj_l.length; i++) {
-				if (obj_l[i].checked) {
-					src = src+obj_l[i].value;
-				}
-			}
-			obj2.title="Prediction for "+ src;
-			src= src++"_";
-			for(var i = 0; i < obj_l1.length; i++) {
-				if (obj_l1[i].checked) {
-					src = src+obj_l1[i].value;
-				}
-			}
-			src = src + ".png";
-			obj2.src = src;
-
-			// const fs = require("fs"); // Or `import fs from "fs";` with ESM
-			// if (fs.existsSync(path)) {
-    
-			// 	obj.src="picplots/"+selections[0]+"_"+selections[1]+"_"+selections[2]+"_"+country+".jpeg";
-			// 	obj.title="Prediction for "+selections[0]+" "+selections[1]+" "+selections[2]+" "+selections[3];
 		
-			// } else {
+        function corrcreate(){
+            obj_l = document.getElementsByName('category');
+            obj_l1 = document.getElementsByName('category2');
+            obj2 = document.getElementById('corrimg');
+            src = "corrplots/";
+            title = ""
+            count = 0;
+            for(var i = 0; i < obj_l.length; i++) {
+                if (obj_l[i].checked) {
+                    src = src+obj_l[i].value+"_";
+                    title = title + obj_l[i].value +" "
+                    count +=1;
+                }
+            }
+            if (count != 3){
+                alert("Please select three keywords!");
+                return;
+            }
 
-			// }
-		}
+            obj2.title="Prediction for "+ title;
+            for(var i = 0; i < obj_l1.length; i++) {
+                if (obj_l1[i].checked) {
+                    src = src+obj_l1[i].value;
+                    break;
+                }
+            }
+            src = src + ".png";
+            obj2.src = src;
+        }
 
 		
 	</script>
@@ -171,16 +162,7 @@
                     }
                 
             ];
-          
-           /*
-          //Add Marker function, we will pass the lat and lg
-          function addMarker(props){
-            var marker = new google.maps.Marker({
-                position:props.coords,
-                map:map,
-                });
-            }
-            */
+
              // Loop through markers
              for(var i = 0; i< markers.length; i++){
                 const infowindow = new google.maps.InfoWindow({
@@ -197,78 +179,14 @@
                 });
             }
                
-        
-            /*
-            // Add marker
-            var marker = new google.maps.Marker({
-                position:{lat:42.4668,lng:-70.9495},
-                map:map
-                });
 
-                // for each marker to pop up
-                var infoWindow = new google.maps.infoWindow({
-                    content:'<h1> US </h1>'
-        
-                });
-                //click the marker and display
-                marker.addListener('click',function(){
-                    clientWindow.open(map,marker);
-                });
-
-                */
-            
-                
-                /*
-                //check for custom icon image
-                if(props.iconImage){
-                    //set icon image
-                    marker.setIcon(props.iconImage);
-                }
-                */
-
-                /*
-                //check the content
-                if(props.content){
-                    var infoWindow = new google.maps.InfoWindow({
-                        content:props.content
-                    });
-                    
-                }*/
           
        }
-   </script>
+    </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA35Ga80O1BE6xSgVwnRgHPLCaR5556Wgs&callback=initMap">
-</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <style id="compiled-css" type="text/css">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA35Ga80O1BE6xSgVwnRgHPLCaR5556Wgs&callback=initMap">
+    </script>
 
-#submit-logged-out {<!--from ww w . j  a  v a  2s .  c o  m-->
-   background: #000;
-   color: #fff;
-   font-size: 5em;
-   left: 50px;
-   padding: 40px;
-   position: relative;
-   top: 20px;
-}
-.popout {
-   animation: popout 1s ease;
-   -webkit-animation: popout 1s ease;
-}
-@keyframes popout {
-   from{transform:scale(0)}
-   80%{transform:scale(1.2)}
-   to{transform:scale(1)}
-}
-@-webkit-keyframes popout {
-   from{-webkit-transform:scale(0)}
-   80%{-webkit-transform:scale(1.2)}
-   to{-webkit-transform:scale(1)}
-}
-
-
-      </style>
 </head>
 <body>
 
@@ -283,20 +201,29 @@
 		</div>
 		<div id="member">Tianyuan Zheng, Weijie Chen, Yu Li, Zan Zhang</div>
 	</div>
-<div class ="page">
-    <iframe src="https://giphy.com/embed/Urx2lEKLvy4qA" width="480" height="344" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cat-animal-kitten-Urx2lEKLvy4qA">via GIPHY</a></p>
-    <div class='text_bar'><b>Watch out! We are just little kitties.</b></div>		
-</div>
-<div class ="page">
-    <div class='text_bar'><b>The Unsplash dataset is a large open-source dataset with over 25,000 images and the corresponding image information like the properties of the photo, the name of the contributor, the unique downloadable link for the image, overall statistics, keywords, and so on. 
-    <p>What does this dataset tell us? </p>
-    <p>Maybe, for instance, how people view the world differently? </p></b></div>		
-    <div class='text_bar'><b></b></div>		
-</div>
+
+    <!-- kitty page -->
+    <div class ="page" id ="cat">
+        <iframe src="https://giphy.com/embed/Urx2lEKLvy4qA" class="gifb"></iframe>
+        <p><a href="https://giphy.com/gifs/cat-animal-kitten-Urx2lEKLvy4qA">via GIPHY</a></p>
+        <div class='text_bar'><b>Watch out! We are just little kitties.</b></div>		
+    </div>
+
+    <!-- intro page -->
+    <div class ="page ">
+        <div id ='intro' class="center">
+            <p>The <b>Unsplash</b> dataset is a large open-source dataset with over 25,000 images and the corresponding image information like the properties of the photo, the name of the contributor, the unique downloadable link for the image, overall statistics, keywords, and so on.<br/></p>
+            <p><b>What does this dataset tell us?</b> <br/></p>
+            <p>Maybe, for instance, how people view the world differently? </p>
+        </div>	
+    </div>
+
 	<!--map page-->
 	<div class ="page">
 		<div class='full'>
-			<div id ="mapleft"><iframe src="https://giphy.com/embed/Ol2yHMEFJdYEo" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cat-kitten-kitty-Ol2yHMEFJdYEo">via GIPHY</a></p>
+			<div id ="mapleft">
+                <p style="padding-top:20%;"><a href="https://giphy.com/gifs/cat-kitten-kitty-Ol2yHMEFJdYEo">via GIPHY</a></p>
+                <iframe src="https://giphy.com/embed/Ol2yHMEFJdYEo" class="gifs" ></iframe>
 				
 				<div class="text center"> <img class="pic" src="text3.png" ></div>
 			</div>
@@ -304,32 +231,35 @@
 				<div class='text_bar'><b>A general look of the most popular photo of selected places</b></div>
 				<div id="map"></div>
 			</div>
-		</div>
+        </div>
 	</div>
 
-	<!--text1 page-->
-    <div class = "page" >
-        <div class = "center">
-        <div class='text_bar'><b>That's the end of today's tour! Enjoy the rest of your day.</b></div>
-        <iframe src="https://giphy.com/embed/ySpxjJmsq9gsw" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ySpxjJmsq9gsw">via GIPHY</a></p>
+    <!-- intro2 page -->
+    <div class = "page" id="end">
+        <div class='center'><b>That's the end of today's tour! Enjoy the rest of your day.</b></div>
+        <iframe src="https://giphy.com/embed/ySpxjJmsq9gsw" class="gifb" ></iframe>
+        <p><a href="https://giphy.com/gifs/ySpxjJmsq9gsw">via GIPHY</a></p>
 		
 	</div>
+
+    <!-- intro3 page -->
     <div class = "page" >
-        <div class = "center">
-        <div class='text_bar'><b>Not satisfied?</b></div>
-       
-    <div class ="page">
-        <div class='center text_bar'><b>Want to see where your taste fits in geographically based on this dataset? </b></div>
+        <div class = "center ques"><b class='center'>Not satisfied?</b></div>
     </div>
-	</div>
-    	</div>
+    
+    <!-- intro4 page -->
+    <div class ="page">
+        <div class='center ques'><b class='center'>Want to see where your taste fits in geographically based on this dataset? </b></div>
+    </div>
+
+
+    <!--text1 page-->
 	<div class = "page" >
 		<div class="t_only center"><img src="text4.png"></div>
 	</div>
 
 
 	<!--color select page-->
-
 	<div class = "page" >
 		<div class = "center picb"><img class="pic" src="color.png" ></div>
 		<div class = "center sel_box">
@@ -455,8 +385,6 @@
 
 	<!--picture page-->
 	<div class ="page">
-        <iframe src="https://giphy.com/embed/g7YDlrD5YLqfe" width="360" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cat-animal-g7YDlrD5YLqfe">via GIPHY</a></p>
-            
 		<div class='top'>
 			<div class='center text_bar'><b>Will this be your favorite photo?</b></div>
 			<div class = "center" id="picpreb"> <img id="picimg" class = "center img" src="" title="" alt ="Click 'Show!' or try new selections."></div>
@@ -502,36 +430,46 @@
 			</div>
 		</div>
 	</div>
-<div class ="page">
-    </div>
+
+    <!-- connect page -->
     <div class ="page">
-        <div class='center text_bar'><b>Wondering why?</b></div>
+        <div class='center ques'><b class='center'>Wondering why?</b></div>
     </div>
+
 	<!--text2 page-->
 	<div class = "page" >
-		<div class="t_only center"><img src="text5.png"></div>
+		<div class="t_only center" id='small'><img src="text5.png"></div>
 	</div>
 
-	<!-- explore page-->
+    <!-- explore1 page -->
+    <div class = "page" >
+        <div class='center text_bar'><b>If different keywords indicate potential color preference, we can see this trend via RGB statistics.</b></div>
+        <div id="RGB"><img class="center img" src="corrplots/RGB_distribution.png" ></div>
+    </div>
+    <!-- explore2 page-->
+    <div class = "page" >
+        <div id="ldtext">
+            <p>The location prediction and photo recommendation are based on a model behind it. Maybe you are wondering is this prediction or recommendation a random output; or are there some intrinsic patterns so that we can do that? Briefly, one of the best ways to have an insight into the whole dataset is low-dimensional visualization. By projecting the numeric data generated by t-Distributed Stochastic Neighbor Embedding(t-SNE) for image parameters onto an x-y plane, assuming the consistency in the dataset intrinsic structure, we can easily distinguish them from each other.</p>
+        </div>
+    </div>
+
+	<!-- explore3 page-->
 	<div class ="page">
 		<div class="full">
 			<div id ="corrleft">
-				<div id="ldtext">
-					<p>fdsljgajjgajgjj;lj;af</p>
-				</div>
 				<div id="box" class= "center">
 					<div id="box1">
-						<div><b>Choose One Feature:</b></div> 
-					    <div><input type="radio" name="category" value="bird" />bird</div>    
-					    <div><input type="radio" name="category" value="flora" />flora</div>
-					    <div><input type="radio" name="category" value="human" />human</div>    
-					    <div><input type="radio" name="category" value="leaf" />leaf</div>    
-					    <div><input type="radio" name="category" value="light" />light</div>    
-					    <div><input type=radio name="category" value="mountain" />mountain</div>
+						<div><b>Choose Three Keywords:</b></div> 
+                        <div><input type="checkbox" name="category" value="bird" />bird</div>    
+                        <div><input type="checkbox" name="category" value="flora" />flora</div>
+                        <div><input type="checkbox" name="category" value="human" />human</div>    
+                        <div><input type="checkbox" name="category" value="leaf" />leaf</div>    
+                        <div><input type="checkbox" name="category" value="light" />light</div>    
+                        <div><input type="checkbox" name="category" value="mountain" />mountain</div>
 					</div>
 					<div id="box2">
 					    <div><b>Choose One Perplexity:</b></div>
-					    <div><input type="radio" name="category2" value="5" />5</div>
+					    <div><input type="radio" name="category2" value="5" checked />5</div>
 					    <div><input type="radio" name="category2" value="10" />10</div>    
 					    <div><input type="radio" name="category2" value="20" />20</div>    
 					    <div><input type="radio" name="category2" value="50" />50</div>    
@@ -546,6 +484,35 @@
 			</div>
 		</div>
 	</div>
+
+
+    <!-- <div class ="page">
+        <div class="full">
+            <div id ="corrleft">
+                <div id="box">
+                    <div>Choose 3 keywords:</div>  
+                    <div><input type="checkbox" name="category" value="bird" />bird</div>    
+                    <div><input type="checkbox" name="category" value="flora" />flora</div>
+                    <div><input type="checkbox" name="category" value="human" />human</div>    
+                    <div><input type="checkbox" name="category" value="leaf" />leaf</div>    
+                    <div><input type="checkbox" name="category" value="light" />light</div>    
+                    <div><input type="checkbox" name="category" value="mountain" />mountain</div>
+                    <div>Choose one perplexity:</div>
+                    <div><input type="checkbox" name="category2" value="5" />5</div>
+                    <div><input type="checkbox" name="category2" value="10" />10</div>    
+                    <div><input type="checkbox" name="category2" value="20" />20</div>    
+                    <div><input type="checkbox" name="category2" value="50" />50</div>    
+                    <div><input type="checkbox" name="category2" value="100" />100</div>    
+                    <div class='bt center'><button type="button" onclick="corrcreate()">Show!</button></div>
+                </div>
+            </div>
+            <div id ="corrright">
+                <div class='text_bar'><b>Let's explore the correlation among categories!</b></div>
+                <div id ="corr"><img id="corrimg" class = "center img" src="" title=""></div>
+            </div>
+        </div>
+    </div>
+ -->
 
 	<!--foot page-->
 	<div id = "foot" class='center'>
